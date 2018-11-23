@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>My Resume</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <link id="theme-style" rel="stylesheet" href="./css/main.css">
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script src="http://unpkg.com/crypto-js/crypto-js.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="main-wrapper">
+            <div class="profile-container">
+                <img id='avatar' src="img/avatar.jpg" alt="Your photo" />
+            </div>
+                <div class="contact-container container-block">
+                    <h1 class="name">{{name.zh}}</h1>
+                    <!--                 <h3 class="tagline">Developer</h3> -->
+                    <ul class="list-unstyled contact-list">
+                        <li class="email"><i class="glyphicon glyphicon-envelope"></i> <a>{{email}}</a></li>
+                        <li class="phone"><i class="glyphicon glyphicon-phone"></i></i> <a>{{phone}}</a></li>
+                        <!-- <li class="website"><i class="glyphicon glyphicon-globe"></i> <a href="http://blog.webjeda.com/"
+                            target="_blank">blog.webjeda.com</a></li> -->
+                    </ul>
+                </div>
+                <section class="section education-section">
+                    <h2 class="section-title"> <span class="fa-stack fa-xs"> <i class="glyphicon glyphicon-bookmark"></i>
+                    </span> {{education.title.zh}}</h2>
+                    <div class="item" v-for="item in education.items">
+                        <div class="upper-row">
+                            <h3 class="degree">{{item.degree.zh}}</h3>
+                            <div class="time">{{item.time.zh}}</div>
+                        </div>
+                        <h5 class="meta">{{item.meta.zh}}</h5>
+                    </div>
+                </section>
+                <section class="section experiences-section">
+                    <h2 class="section-title"> <span class="fa-stack fa-xs"> <i class="glyphicon glyphicon-bookmark"></i>
+                    </span> {{experience.title.zh}}</h2>
+                    <div class="item" v-for="item in experience.items">
+                        <div class=" meta">
+                            <div class="upper-row">
+                                <h3 class="job-title">{{item.job.zh}}</h3>
+                                <div class="time">{{item.time.zh}}</div>
+                            </div>
+                            <div class="company">{{item.company.zh}}</div>
+                        </div>
+                        <div class="details">
+                            <p>{{item.detail.p.zh}}</p>
+                            <ul>
+                                <li v-for="bulletpoint in item.detail.bulletpoints">{{bulletpoint.zh}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section projects-section">
+                    <h2 class="section-title"> <span class="fa-stack fa-xs"> <i class="glyphicon glyphicon-bookmark"></i>
+                    </span>{{projects.title.zh}}</h2>
+                    <!-- <div class="intro">
+                    <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
+                </div> -->
+                    <div class="item" v-for="item in projects.items"> <span class="project-title"> <a>{{item.name.zh}}</a>
+                    </span> - <span class="project-tagline">{{item.desc.zh}}</span></div>
+                </section>
+                <section class="section skills-section">
+                    <h2 class="section-title"> <span class="fa-stack fa-xs"> <i class="glyphicon glyphicon-bookmark"></i>
+                    </span>{{skills.title.zh}}</h2>
+                    <!-- <div class="intro">
+                    <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit
+                        amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
+                </div> -->
+                    <div class="languages-container container-block">
+                        <!-- <h2 class="container-block-title"> {{languages.title.zh}}</h2> -->
+                        <ul class="list-unstyled interests-list">
+                            <li v-for="item in languages.items"> {{item.name.zh}} <span class="lang-desc">({{item.desc.zh}})</span></li>
+                        </ul>
+                    </div>
+                    <div class="languages-container container-block">
+                        <!-- <h2 class="container-block-title"> {{skills.title.zh}}</h2> -->
+                        <ul class="list-unstyled interests-list">
+                            <li v-for="item in skills.items"> {{item.name.zh}} <span class="lang-desc">{{item.desc.zh}}</span></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script type="text/javascript" src="./js/data.js"></script>
+        <script type="text/javascript" src="./js/data.encrypt.js"></script>
+        <script>
+        var req = getRequestParam();
+        var pwd = req['pwd'];
+        if (pwd) {
+            var sAesKey = getAesKey(pwd);
+            if (sAesKey) {
+                var oResume = getDecryptedData(sAesKey);
+                replaceAvatar(sAesKey);
+                new Vue(
+                    oMyResume
+                );
+
+            } else {
+                new Vue(
+                    oTemplateResume
+                );
+            }
+        } else {
+            new Vue(
+                oTemplateResume
+            );
+        }
+        </script>
+</body>
+
+</html>
