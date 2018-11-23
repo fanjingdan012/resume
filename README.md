@@ -14,3 +14,4 @@ It is a template of resume.
 - Visit your website by adding '?pwd=x'. x=Base64(AESkey+'MM/dd/yyyy' format of today), x changes every day. Like https://fanjingdan012.github.io/resume/index.html?pwd=XXXXXXX
 - Though this is not so perfect, enough to protect your personal data to put it on github(no server, so nowhere to setup an RSA encrypt)
 - When you share your resume to a dangerous person, you may change your AESkey, because Base64 is not safe.
+- Tools: you can use this: http://tool.oschina.net/encrypt
