@@ -70,8 +70,12 @@
                     <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit
                         amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
                 </div> -->
-                    <div class="item" v-for="item in projects.items"> <span class="project-title"> <a>{{item.name|lang(lan)}}</a>
-                    </span> - <span class="project-tagline">{{item.desc|lang(lan)}}</span></div>
+                    <div class="item" v-for="item in projects.items"> 
+                        <span class="project-title"> <a>{{item.name|lang(lan)}}</a> </span> - <span class="project-tagline">{{item.desc|lang(lan)}}</span>
+                        <ul>
+                            <li v-for="bulletpoint in item.detail.bulletpoints">{{bulletpoint|lang(lan)}}</li>
+                        </ul>
+                    </div>
                 </section>
                 <section class="section skills-section">
                     <h2 class="section-title"> <span class="fa-stack fa-xs"> <i class="glyphicon glyphicon-bookmark"></i>

@@ -240,6 +240,31 @@
                     desc: {
                         en: 'Butchers frequently refer to the section of meat below the rib cage, but above the round (in a carcass hanging from the head end) as loin. Various names of meats further butchered from the loin section of cattle and pork[19] contain the name "loin" such as tenderloin and sirloin. In American culinary arts the loin section of meat from the top half of cattle is divided into three sections.[20] The various cuts of beef from this section are named sirloin, tenderloin, top sirloin, and short loin. They are named for their respective parts on the cattle.',
                         zh: 'The loin section of meat from the top half of cattle is divided into three sections.[20] The various cuts of beef from this section are named sirloin, tenderloin'
+                    },
+                    detail: {
+                        p: {
+                            en: '',
+                            zh: ''
+                        },
+                        bulletpoints: [{
+                                en: 'When a carcass is butchered, it is divided into many sections',
+                                zh: 'When a carcass is butchered, it is divided into many sections'
+                            },
+                            {
+                                en: 'Butchers frequently refer to the section of meat below the rib cage, but above the round ',
+                                zh: 'Butchers frequently refer to the section of meat below the rib cage, but above the round '
+                            },
+                            {
+                                en: 'butchered from the loin section of cattle and pork[19] contain the name "loin" such as',
+                                zh: 'butchered from the loin section of cattle and pork[19] contain the name "loin" such as'
+                            },
+                            {
+                                en: 'In the British butchery tradition, the same set of muscles ',
+                                zh: 'In the British butchery tradition, the same set of muscles '
+                            }
+
+                        ]
+
                     }
                 },
                 {
@@ -250,6 +275,31 @@
                     desc: {
                         en: 'The loin section of meat from the top half of cattle is divided into three sections.[20] The various cuts of beef from this section are named sirloin, tenderloin',
                         zh: 'The loin section of meat from the top half of cattle is divided into three sections.[20] The various cuts of beef from this section are named sirloin, tenderloin'
+                    },
+                    detail: {
+                        p: {
+                            en: '',
+                            zh: ''
+                        },
+                        bulletpoints: [{
+                                en: 'When a carcass is butchered, it is divided into many sections',
+                                zh: 'When a carcass is butchered, it is divided into many sections'
+                            },
+                            {
+                                en: 'Butchers frequently refer to the section of meat below the rib cage, but above the round ',
+                                zh: 'Butchers frequently refer to the section of meat below the rib cage, but above the round '
+                            },
+                            {
+                                en: 'butchered from the loin section of cattle and pork[19] contain the name "loin" such as',
+                                zh: 'butchered from the loin section of cattle and pork[19] contain the name "loin" such as'
+                            },
+                            {
+                                en: 'In the British butchery tradition, the same set of muscles ',
+                                zh: 'In the British butchery tradition, the same set of muscles '
+                            }
+
+                        ]
+
                     }
                 },
             ]
