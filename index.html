@@ -11,7 +11,7 @@
     <link id="theme-style" rel="stylesheet" href="./css/main.css">
     <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]-->
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
     <script src="https://unpkg.com/crypto-js/crypto-js.js"></script>
@@ -21,10 +21,10 @@
     <div class="wrapper">
         <div class="main-wrapper">
             <div class="profile-container">
-                <img id='avatar' src="img/avatar.jpg" alt="Your photo" />
+                <img id='avatar' v-bind:src="avatar" alt="Your photo" />
             </div>
                 <div class="contact-container container-block">
-                    <h1 class="name">{{name.zh}}</h1>
+                    <h1 class="name">{{name|lang(lan)}}</h1>
                     <!--                 <h3 class="tagline">Developer</h3> -->
                     <ul class="list-unstyled contact-list">
                         <li class="email"><i class="glyphicon glyphicon-envelope"></i> <a>{{email}}</a></li>
@@ -35,61 +35,61 @@
                 </div>
                 <section class="section education-section">
                     <h2 class="section-title"> <span class="fa-stack fa-xs"> <i class="glyphicon glyphicon-bookmark"></i>
-                    </span> {{education.title.zh}}</h2>
+                    </span> {{education.title|lang(lan)}}</h2>
                     <div class="item" v-for="item in education.items">
                         <div class="upper-row">
-                            <h3 class="degree">{{item.degree.zh}}</h3>
-                            <div class="time">{{item.time.zh}}</div>
+                            <h3 class="degree">{{item.degree|lang(lan)}}</h3>
+                            <div class="time">{{item.time|lang(lan)}}</div>
                         </div>
-                        <h5 class="meta">{{item.meta.zh}}</h5>
+                        <h5 class="meta">{{item.meta|lang(lan)}}</h5>
                     </div>
                 </section>
                 <section class="section experiences-section">
                     <h2 class="section-title"> <span class="fa-stack fa-xs"> <i class="glyphicon glyphicon-bookmark"></i>
-                    </span> {{experience.title.zh}}</h2>
+                    </span> {{experience.title|lang(lan)}}</h2>
                     <div class="item" v-for="item in experience.items">
                         <div class=" meta">
                             <div class="upper-row">
-                                <h3 class="job-title">{{item.job.zh}}</h3>
-                                <div class="time">{{item.time.zh}}</div>
+                                <h3 class="job-title">{{item.job|lang(lan)}}</h3>
+                                <div class="time">{{item.time|lang(lan)}}</div>
                             </div>
-                            <div class="company">{{item.company.zh}}</div>
+                            <div class="company">{{item.company|lang(lan)}}</div>
                         </div>
                         <div class="details">
-                            <p>{{item.detail.p.zh}}</p>
+                            <p>{{item.detail.p|lang(lan)}}</p>
                             <ul>
-                                <li v-for="bulletpoint in item.detail.bulletpoints">{{bulletpoint.zh}}</li>
+                                <li v-for="bulletpoint in item.detail.bulletpoints">{{bulletpoint|lang(lan)}}</li>
                             </ul>
                         </div>
                     </div>
                 </section>
                 <section class="section projects-section">
                     <h2 class="section-title"> <span class="fa-stack fa-xs"> <i class="glyphicon glyphicon-bookmark"></i>
-                    </span>{{projects.title.zh}}</h2>
+                    </span>{{projects.title|lang(lan)}}</h2>
                     <!-- <div class="intro">
                     <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit
                         amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
                 </div> -->
-                    <div class="item" v-for="item in projects.items"> <span class="project-title"> <a>{{item.name.zh}}</a>
-                    </span> - <span class="project-tagline">{{item.desc.zh}}</span></div>
+                    <div class="item" v-for="item in projects.items"> <span class="project-title"> <a>{{item.name|lang(lan)}}</a>
+                    </span> - <span class="project-tagline">{{item.desc|lang(lan)}}</span></div>
                 </section>
                 <section class="section skills-section">
                     <h2 class="section-title"> <span class="fa-stack fa-xs"> <i class="glyphicon glyphicon-bookmark"></i>
-                    </span>{{skills.title.zh}}</h2>
+                    </span>{{skills.title|lang(lan)}}</h2>
                     <!-- <div class="intro">
                     <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit
                         amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
                 </div> -->
                     <div class="languages-container container-block">
-                        <!-- <h2 class="container-block-title"> {{languages.title.zh}}</h2> -->
+                        <!-- <h2 class="container-block-title"> {{languages.title|lang(lan)}}</h2> -->
                         <ul class="list-unstyled interests-list">
-                            <li v-for="item in languages.items"> {{item.name.zh}} <span class="lang-desc">({{item.desc.zh}})</span></li>
+                            <li v-for="item in languages.items"> {{item.name|lang(lan)}} <span class="lang-desc">({{item.desc|lang(lan)}})</span></li>
                         </ul>
                     </div>
                     <div class="languages-container container-block">
-                        <!-- <h2 class="container-block-title"> {{skills.title.zh}}</h2> -->
+                        <!-- <h2 class="container-block-title"> {{skills.title|lang(lan)}}</h2> -->
                         <ul class="list-unstyled interests-list">
-                            <li v-for="item in skills.items"> {{item.name.zh}} <span class="lang-desc">{{item.desc.zh}}</span></li>
+                            <li v-for="item in skills.items"> {{item.name|lang(lan)}} <span class="lang-desc">{{item.desc|lang(lan)}}</span></li>
                         </ul>
                     </div>
                 </section>
@@ -100,25 +100,31 @@
         <script>
         var req = getRequestParam();
         var pwd = req['pwd'];
+        var lan = req['lang']||'zh';
+        var oResume = null;
         if (pwd) {
             var sAesKey = getAesKey(pwd);
             if (sAesKey) {
-                var oResume = getDecryptedData(sAesKey);
-                replaceAvatar(sAesKey);
-                new Vue(
-                    oMyResume
-                );
-
-            } else {
-                new Vue(
-                    oTemplateResume
-                );
-            }
-        } else {
-            new Vue(
-                oTemplateResume
-            );
+                oResume = getDecryptedData(sAesKey);
+            } 
+        } 
+        if(!oResume){
+            oResume = oTemplateResume;
         }
+        new Vue({
+            el: '.wrapper',
+            data: oResume,
+            filters: {
+                lang: function (o,lang) {
+                    if(lang==='zh'){
+                        return o.zh;
+                    }else{
+                        return o.en;
+                    }
+                }
+            }
+        });
+        
         </script>
 </body>
 

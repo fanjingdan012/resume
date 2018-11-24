@@ -1,6 +1,6 @@
 ﻿var oTemplateResume = {
-    el: '.wrapper',
-    data: {
+
+        avatar:'./img/avatar.jpg',
         name: {
             en: 'Lan Yang',
             zh: '杨澜'
@@ -255,5 +255,6 @@
             ]
         }
 
-    }
+    
+    
 };
